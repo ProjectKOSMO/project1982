@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="owner">
+	
+
+	<insert id="ownerInsert" parameterType="OwnerVO">
+		INSERT INTO ownerInfo(ownerid, ownerpass, ownername, ownerpn, ownermail, ownerdate, shopaddr, shopcode)
+		VALUES(#{ownerid}, #{ownerpass}, #{ownername}, #{ownerpn}, #{ownermail}, now(), #{shopaddr}, #{shopcode})
+	</insert>
+	
+	<select id='idCheck' parameterType="OwnerVO" resultType="OwnerVO">
+		SELECT * FROM ownerInfo
+			<where>
+				<if test="ownerid != null">
+					ownerid = #{ownerid}
+				</if>
+				<if test="ownerpass != null">
+					AND ownerpass = #{ownerpass}
+				</if>
+			</where>
+	</select>
+	<!-- ownerid=#{ownerid} AND ownerpass=#{ownerpass} -->
+	
+
+</mapper>

@@ -31,6 +31,8 @@
 	    <property name="typeAliases">
 	  	<list>
 	  		<value>com.javassem.domain.UserVO</value>
+	  		<value>com.javassem.domain.OwnerVO</value>
+	  		
 	  	</list>
 	  </property>
 	 </bean>

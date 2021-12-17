@@ -4,38 +4,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.javassem.domain.OwnerVO;
 import com.javassem.domain.UserVO;
-import com.javassem.service.UserService;
-import com.javassem.service.UserServiceImpl;
+import com.javassem.service.OwnerService;
 
 @Controller
 @RequestMapping("owner")
 public class OwnerLoginController {
 	
 	@RequestMapping("{step}.do")
-	public String userJoin(@PathVariable String step){
+	public String ownerJoin(@PathVariable String step){
 		return "/owner/" + step;
 	}
 	
 	@Autowired
-	public UserService userService;
+	public OwnerService ownerService;
 	
-	@RequestMapping("userInsert.do")
-	public String userinsert(UserVO vo){
-		userService.userInsert(vo);
-		return "redirect:user_login.do";
+	@RequestMapping("ownerInsert.do")
+	public String userinsert(OwnerVO vo){
+		ownerService.ownerInsert(vo);
+		return "redirect:owner_login.do";
 	}
 	
 	@RequestMapping("login.do")
-	public String userLogin(UserVO vo){
-		UserVO result =  userService.idCheck_Login(vo);
+	public String ownerLogin(OwnerVO vo){
+		OwnerVO result =  ownerService.idCheck_Login(vo);
+		
 		if(result == null){
-			return "/login/1_login";
+			return "/owner/owner_login";
 			
 		}else{
-			return "./main";
+			return "main";
 		}
+	}
+	
+	@RequestMapping(value="idCheck.do", produces="application/text; charset=UTF-8")
+	@ResponseBody
+	public String idCheck(OwnerVO vo){
+		OwnerVO result = ownerService.idCheck_Login(vo);
+		String message = "사용가능한 아이디 입니다.";
+		if(result != null) message = "이미 사용중인 아이디 입니다.";
+		return message;
 	}
 
 }

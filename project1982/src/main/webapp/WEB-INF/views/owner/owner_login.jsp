@@ -15,15 +15,15 @@
 	}
 	
 	function check(){
-		if(document.loginform.userid.value==""){
+		if(document.loginform.ownerid.value==""){
 			alert("ID를 입력하세요.")
-			document.loginform.userid.focus();
+			document.loginform.ownerid.focus();
 			return false;
 		}
 		
-		if(document.loginform.userpass.value==""){
+		if(document.loginform.ownerpass.value==""){
 			alert("패스워드를 입력하세요.")
-			document.loginform.userpass.focus();
+			document.loginform.ownerpass.focus();
 			return false;
 		}
 		
@@ -31,11 +31,11 @@
 	}
 </script>
 <body>
-	<form action="#" method="get" id="login-form">
+    <form action="login.do" method="get" id="login-form" name="loginform">
         <h1>1982 사업자</h1>
-        <input name="username" type="text" placeholder="Username" />
-        <input name="password" type="password" placeholder="Password" />
-        <input type="submit" value="로그인" />
+        <input name="ownername" type="text" placeholder="Ownername" />
+        <input name="ownerpass" type="password" placeholder="Password" />
+        <input type="submit" name="Submit" id="Submit" value="로그인" />
         <div class="login_article">
             <a href="#">아이디 |</a>
             <a href="#">비밀번호찾기 |</a>

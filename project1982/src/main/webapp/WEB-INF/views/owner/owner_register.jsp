@@ -9,29 +9,28 @@
     <title>owner_register.jsp</title>
     <link type="text/css" href="/project1982/resources/css/3_register.css" rel="stylesheet"/>
     <script type="text/javascript" src="/project1982/resources/js/jquery-1.7.1.js"></script>
-	<script  src="/project1982/resources/js/js_userinput.js"></script>
+	<script  src="/project1982/resources/js/js_ownerinput.js"></script>
 </head>
 <body>
-	<form action="userInsert.do" method="get" name="userinput" id="login-form">
+	<form action="ownerInsert.do" method="get" name="ownerinput" class="login-form">
         <h1>1982 사업자 - 회원가입</h1>
         <div>
-	        <input class="id_input" name="ownerid" type="text" placeholder="아이디를 입력하세요" />
-	        <input type="submit" value="중복확인" />
+	        <input class="id_input" id="ownerid" name="ownerid" type="text" placeholder="아이디를 입력하세요" />
+	        <span id="idCheckResult" style="width:150px;color:red"></span>
         </div>
-	        <input name="ownerpass" type="password" placeholder="비밀번호를 입력하세요" />
-	        <input name="ownerpass" type="password" placeholder="비밀번호 확인" />
+	        <input name="ownerpass" id="ownerpass" type="password" placeholder="비밀번호를 입력하세요" />
+	        <input name="ownerpass2" id="ownerpass2" type="password" placeholder="비밀번호 확인" />
         <div>
-       		<input class="ownername" name="ownername" type="text" placeholder="이름을 입력하세요" />
-       		<input class="ownerbirth" name="ownerbirth" type="text" placeholder="생년월일을 입력하세요" />
-	        <input class="id_input" name="ownerpn" type="text" placeholder="핸드폰 번호를 입력하세요" />
+       		<input class="ownername" name="ownername" id="ownername" type="text" placeholder="이름을 입력하세요" />
+	        <input class="id_input" name="ownerpn" id="ownerpn" type="text" placeholder="핸드폰 번호를 입력하세요" />
 	        <input type="submit" value="인증요청" />
         </div>
 	        <input name="ownerpn" type="password" placeholder="인증번호" />
-	        <input name="ownermail" type="password" placeholder="이메일" />
-	        <input name="storeaddr" type="text" placeholder="업체주소를 입력하세요" />
-	        <input name="ownerstorenum" type="text" placeholder="사업자 등록번호를 입력해주세요" />
-	        <input type="submit" value="확인" />
-	        <input type="submit" value="가입" />
+	        <input name="ownermail" id ="ownermail" type="password" placeholder="이메일" />
+	        <input name="shopaddr" type="text" placeholder="업체주소를 입력하세요" />
+	        <input name="shopcode" type="text" placeholder="업체고유번호를 입력하세요" />
+	        <input type="submit" name="confirm" id="confirm" value="가입" />
+
       </form>
 </body>
 </html>
