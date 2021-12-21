@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,10 +14,12 @@
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
+<script src='../resources/js/reply.js' type="text/javascript"></script>
 <body>
  
 
         <!--메뉴바  ------------------------------------------------->
+
         <header class="header" >
          <!-- 로고-->
             
@@ -57,7 +61,7 @@
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
-            <form action="">
+        <form action='admin/parkblacklist.do'>
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
@@ -77,7 +81,7 @@
                         </div>
                         <div class="service2">
                             <div class="service2_left">asdasd</div>
-                            <div class="service2_right"><asdasd/div>
+                            <div class="service2_right">asdasd</div>
                         </div>
                    
                     
@@ -107,45 +111,35 @@
                             <div class="divTableHead">이체하기</div>
                             </div>
                             </div>
+                            <c:forEach items="${ownerlist}" var="ownerlist">    
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                            <div class="divTableCell"><button>이체</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell"><button>이체</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell"><button>이체</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell"><button>이체</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell"><button>이체</button></div>
-                            </div>
-                            </div>
-                           
-                            </div>
+                            <div class="divTableCell">${ownerlist.shopName}</div>
+                            <div class="divTableCell">${ownerlist.deposit}</div>
+                            <div class="divTableCell">${ownerlist.state}</div>
+                            <div class="divTableCell">${ownerlist.userName}</div>
+                            <div class="divTableCell"><button>이체하기</button></div>
+                          </div>
+                          </div>
+                         </c:forEach>
+                      <div style="display: block; text-align: center;">		
+		<c:if test="${paging.startPage != 1 }">
+			<a href="/ownerListList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage }">
+					<b>${p }</b>
+				</c:when>
+				<c:when test="${p != paging.nowPage }">
+					<a href="/ownerListList?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="/ownerListList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+		</c:if>
+	</div>
                     </div>
 
                     <div>블랙리스트 현황</div>
@@ -153,74 +147,59 @@
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">경고누적 횟수</div>
                             <div class="divTableHead">계정명</div>
+                            <div class="divTableHead">경고누적 횟수</div>
                             <div class="divTableHead">구직자 이름</div>
                             <div class="divTableHead">연락처</div>
                             <div class="divTableHead">사유</div>
                             <div class="divTableHead">이용 정지</div>    
-                        </div>
-                            </div>
+                    </div>
+                    </div>
+                           <c:forEach items="${blacklist}" var="blacklist">    
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                            <div class="divTableCell">근무태만</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">지가사장인줄암</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">잠수</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">싹퉁바가지</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">범죄</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            
-                            </div>
-                           
-                            </div>
-                    </div>
-                    <div>
+                            <div class="divTableCell">${blacklist.userID}</div>
+                            <div class="divTableCell">${blacklist.warnCnt}</div>
+                            <div class="divTableCell">${blacklist.userName}</div>
+                            <div class="divTableCell">${blacklist.userPN}</div>
+                            <div class="divTableCell">${blacklist.reason}</div>
+                            <div class="divTableCell"><button>영구정지</button></div>
+                          </div>
+                          </div>
+                         </c:forEach>
+                         <div style="display: block; text-align: center;">		
+		<c:if test="${paging.startPage != 1 }">
+			<a href="/blackList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage }">
+					<b>${p }</b>
+				</c:when>
+				<c:when test="${p != paging.nowPage }">
+					<a href="/blackListList?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="/blackListList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+		</c:if>
+	</div>
+                        </div>
+                        </div>
+                       <div>
                         <li> 경고 1회 - 7일 정지 및 경고 알림 발송</li>
                         <li> 경고 2회 - 30일 정지 및 경고 알림 발송</li>
                         <li> 경고 3회 - 영구 정지</li>
                     </div>
+                    
                 </div><!--중간 메뉴바 종료-->
                
             
             </div><!-- 페이지 컨테이너 종료--> 
-        </form>
+          
+          </form>
         </main>
-        
-        
-        
         
         
         

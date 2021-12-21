@@ -26,12 +26,13 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <property name="dataSource" ref="dataSource" />
-	  <!-- <property name="configLocation" value="classpath:/mybatis-config.xml"></property>  -->
+	  <!-- <property name="configLocation" value="classpath:/mybatis-config.xml"></property> -->
 	  <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	    <property name="typeAliases">
 	  	<list>
 	  		<value>com.javassem.domain.UserVO</value>
 	  		<value>com.javassem.domain.ParkVO</value>
+	  		<value>com.javassem.domain.ParkBlackVO</value>
 	  	</list>
 	  </property>
 	 </bean>
@@ -39,6 +40,4 @@
 	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 	   <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	 </bean>
- 
-   		
 </beans>

@@ -16,7 +16,7 @@ public class ParkDAOImpl implements ParkDAO{
 	
 	
 	public ParkVO idCheck(ParkVO vo) {
-		System.out.println("===> Mybatis idCheck() 호출");
+		System.out.println("===> Mybatis idCheck() 호출1");
 		return mybatis.selectOne("supervisor.idCheck", vo);
 	}
 	

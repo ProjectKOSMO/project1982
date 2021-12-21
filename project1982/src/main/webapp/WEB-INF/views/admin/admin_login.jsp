@@ -31,7 +31,7 @@
 	}
 </script>
 <body>
-	<form action="./adminPage.do" method="get" id="login-form">
+	<form action="adminPage.do" method="get" id="login-form">
         <h1>1982 관리자</h1>
         <input name="supervisorId" type="text" placeholder="Username" />
         <input name="supervisorPw" type="password" placeholder="Password" />
