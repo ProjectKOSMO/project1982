@@ -19,32 +19,90 @@ import com.javassem.service.OwnerService;
 @Controller
 @RequestMapping("owner")
 public class OwnerLoginController {
-	
+
 	@RequestMapping("{step}.do")
-	public String ownerJoin(@PathVariable String step){
+	public String ownerJoin(@PathVariable String step) {
 		return "/owner/" + step;
 	}
-	
+
 	@Autowired
 	public OwnerService ownerService;
-	
+
+	// 업자의 업체 정보 출력 게시판 : 만약, 등록 업체가 있다면 업체 게시판으로, 아니라면 업체 등록 페이지로
+	// 이동--------------------------------------------------------------------------------------------------------------
+
+	@RequestMapping("ownerMypage.do")
+	public String ownerMypage(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+
+		Integer ownernum = (Integer) session.getAttribute("ownernum");
+		vo.setOwnernum(ownernum);
+
+		List<OwnerVO> list = ownerService.getList(vo);
+
+		model.addAttribute("shopList", list);
+
+		if (list.isEmpty()) {
+			return "/owner/ownerMypage";
+		} else {
+			return "/owner/ownerViewPage";
+		}
+
+	}
+	// ---------------------------------------------------------------------
+
+	@RequestMapping("shopInsert.do")
+	public String ownerInsert(OwnerVO vo, Model model) {
+		
+		System.out.println(vo.getShopname());
+		
+		ownerService.insertShopInfo(vo); // 업체정보 인설트
+
+		List<OwnerVO> list = ownerService.getList(vo);
+		model.addAttribute("shopList", list);
+
+		return "redirect:ownerList.do";
+	}
+
+	@RequestMapping("ownerUpdate.do")
+	public String ownerViewPage(OwnerVO vo) {
+		ownerService.selectShopInfo(vo); // 업체정보 셀렉트
+
+		return "redirect:ownerViewPage.do";
+
+	}
+
+	@RequestMapping("ownerList.do")
+	public String getList(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
+
+		HttpSession session = request.getSession();
+
+		Integer ownernum = (Integer) session.getAttribute("ownernum");
+		vo.setOwnernum(ownernum);
+
+		List<OwnerVO> list = ownerService.getList(vo);
+		model.addAttribute("shopList", list);
+		return "/owner/ownerViewPage";
+	}
+	//---------------------------------------------------------------------
+
 	@RequestMapping("ownerInsert.do")
-	public String ownerInsert(OwnerVO vo){
+	public String ownerInsert(OwnerVO vo) {
 		ownerService.ownerInsert(vo);
 		return "redirect:owner_login.do";
 	}
-	
+
 	@RequestMapping("ownerBoardInsert.do")
-	public String ownerBoardInsert(OwnerBoardVO vo, Model m){
-		
+	public String ownerBoardInsert(OwnerBoardVO vo, Model m) {
+
 		String jobDate = vo.getJobDate();
 //		vo.setJobDate(jobDate);
 		System.out.println(jobDate);
-		
-		ownerService.ownerBoardInsert(vo);  // 정보 입력
-		//---------------------------------------------------
+
+		ownerService.ownerBoardInsert(vo); // 정보 입력
+		// ---------------------------------------------------
 		List<OwnerBoardVO> list = ownerService.getOwnerBoardList(vo); // 정보 표시
-		m.addAttribute("ownerBoardList",list);
+		m.addAttribute("ownerBoardList", list);
 		return "/owner/job_positing";
 //		return "redirect:getBoardList.do";
 

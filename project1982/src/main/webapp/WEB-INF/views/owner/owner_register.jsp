@@ -26,9 +26,8 @@
 	        <input type="submit" value="인증요청" />
         </div>
 	        <input name="ownerpn" type="password" placeholder="인증번호" />
-	        <input name="ownermail" id ="ownermail" type="password" placeholder="이메일" />
-	        <input name="shopaddr" type="text" placeholder="업체주소를 입력하세요" />
-	        <input name="shopcode" type="text" placeholder="업체고유번호를 입력하세요" />
+	        <input name="ownermail" id ="ownermail" placeholder="이메일" />
+	       
 	        <input type="submit" name="confirm" id="confirm" value="가입" />
 
       </form>

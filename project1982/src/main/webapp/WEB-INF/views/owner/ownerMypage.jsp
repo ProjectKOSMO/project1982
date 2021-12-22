@@ -13,51 +13,47 @@
 <body>
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
+	Integer ownernum = (Integer)session.getAttribute("ownernum");
+
+	
 	out.println(ownerid + " 님 환영합니다.");
+	out.println("번호 : " + ownernum);
 %>
         <!--메뉴바  ------------------------------------------------->
-        <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="#">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
-                </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
-
-        </header>
+       <header class="header" >
+            <!-- 로고-->
+               <div>
+               <a href="../main.do" class="logo">
+                   <h1>1982</h1>
+               </a>
+               </div>
+               <!--메뉴--> 
+             
+               
+               <!-- 오른쪽 메뉴-->
+               <div class="right-menu">
+                   <!--검색 -->
+                   <a href="/project1982/owner/job_positing.do" class="search">
+                    구인공고
+                   </a>
+                   <!--유저 -->
+                   <a href="/project1982/owner/ownerMypage" class="user">
+                   마이페이지
+                   </a>
+                   <!--카트  -->
+                   <a href="../board.do">
+                   고객센터
+                       <!--카트 상품-->
+                       
+                   </a>
+               </div>
+   
+           </header>
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
       
-            <form action="">
+        <form action="shopInsert.do" method='post' enctype="multipart/form-data"> 
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
@@ -71,281 +67,36 @@
                     <div>업체 등록 / 수정</div>
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
-                                <div ><img src="" alt="">이미지 넣을 장소 <button>이미지 추가</button></div>
+                     
+				
+							<input type="file" name="file" maxlength="60" size="40">
+						
                  
                             </div>
                             <div class= "body_container_center_shop_contanier_info">
-                                <div>업체 이름: <input type="text"> </div>                                
-                                <div>업체 주소: <input type="text"><button>주소확인</button></div>                                
-                                <div>업체 연락처: <input type="text"></div>                                
-                                <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <textarea name="" id="" cols="30" rows="10"></textarea>     
-
+                                <div>업체 이름: <input type="text" name="shopname"> </div>
                                     
+                                <div>업체 주소: <input type="text" name="shopaddr"><button>주소확인</button></div>                                
+                                <div>업체 연락처: <input type="text" name="shoppn"></div>                             
+                                <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <textarea name="shopcontent" id="" cols="30" rows="10"></textarea>     
+
+                                 <div>담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
                                 </div>                                
                                 
-                                <button>수정 </button>                          <button>업체 등록 </button>                 
+                                                     <button>업체 등록 </button>                 
                             </div>
                         </div>
                     
                     
-                    
-                    
-                    <div>업체 등록 현황</div>
-                    <div>
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">업체 이름</div>
-                            <div class="divTableHead">매니저 이름</div>
-                            <div class="divTableHead">업체 주소</div>
-                            <div class="divTableHead">업체 연락처</div>
-                            <div class="divTableHead">업체소개</div>
-                       
-                            </div>
-                            </div>
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                            <div class="divTableCell">cell5_1</div>
-                            <div class="divTableCell">cell6_1</div>
-                        
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">cell5_2</div>
-                            <div class="divTableCell">cell5_2</div>
-           
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">cell5_3</div>
-                    
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell"><button>이체</button></div>
-               
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
+            
                   
-                            </div>
-                            </div>
-                           
-                            </div>
-              
-                    </div>
-
-                    <div>구직자 신청 현황</div>
-                    <div>
-                        <div>
-                            
-                        </div>
-
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">근무 예정 일자</div>
-                            <div class="divTableHead">이력서 확인</div>
-                            <div class="divTableHead">고용 여부</div>
-                            <div class="divTableHead">연락처</div>    
-                        </div>
-                            </div>
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell"><button>PDF</button> <button>PPT</button></div>
-                            <div class="divTableCell"><button>고용</button> <button>거절</button></div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">지가사장인줄암</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">잠수</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">싹퉁바가지</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">범죄</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            
-                            </div>
-                           
-                            </div>
-
-                            <div>출근 현황</div>
-                    <div>
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">긴급 / 일일</div>
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">근무시간</div>
-                            <div class="divTableHead">급여</div>
-                            <div class="divTableHead">차단</div>
-                            <div class="divTableHead">알바종료</div>
-
-                        </div>
-                            </div>
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                            <div class="divTableCell">근무태만</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">지가사장인줄암</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">잠수</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">싹퉁바가지</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">범죄</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            
-                            </div>
-                           
-                            </div>
-                    </div>
-
-                    <div>구직자 차단 내역</div>
-                    <div>
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">구직자 이름 / 아이디</div>
-                            <div class="divTableHead">차단 일자</div>
-                            <div class="divTableHead">차단사유</div>
-           
-
-                        </div>
-                            </div>
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell">1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                   
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">2</div>
-                            <div class="divTableCell">이성대(skyvcx)</div>
-                            <div class="divTableCell">2021-12-13</div>
-                            <div class="divTableCell">지가 사장인줄 암</div>
-               
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-               
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
- 
-                            </div>
-                            
-                            </div>
-                           
-                            </div>
                    
                 </div><!--중간 메뉴바 종료-->
                
             
             </div><!-- 페이지 컨테이너 종료--> 
-        </form>
+        </form> <!--  전체폼으로 감싸기 -->
         </main>
         
         

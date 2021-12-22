@@ -48,4 +48,22 @@ public class OwnerDAOImpl implements OwnerDAO{
 		System.out.println("===> Mybatis getOwnerBoardList() 호출");
 		return mybatis.selectList("owner.ownerBoardList", vo);
 	}
+	
+	@Override
+	public int shopInsert(OwnerVO vo) {
+		System.out.println("===>  MemberMapper ownerInsert() 호출");
+		return mybatis.insert("owner.shopInsert", vo);
+	}
+	
+	@Override
+	public String shopSelect(OwnerVO vo) {
+		System.out.println("===>  MemberMapper ownerInsert() 호출");
+		return mybatis.selectOne("owner.shopSelect", vo);
+	}
+	
+	@Override
+	public List<OwnerVO> getList(OwnerVO vo) {
+		System.out.println("===> Mybatis ownerList() 호출");
+		return mybatis.selectList("owner.getList", vo);
+	}
 }

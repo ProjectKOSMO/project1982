@@ -31,4 +31,13 @@ public interface OwnerDAO {
 	
 	List<OwnerBoardVO> getOwnerBoardList(OwnerBoardVO vo) ;
 	
+	
+	/* 사업자 가게정보 입력기능
+	 * */
+	int shopInsert(OwnerVO vo);
+	
+	List<OwnerVO> getList(OwnerVO vo);
+	
+	String shopSelect(OwnerVO vo);
+	
 }

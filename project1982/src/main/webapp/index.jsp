@@ -51,7 +51,7 @@
         </header>
 
     <div class="main">
-        <a class="main_button" href="user/user_login.do">구직자 로그인</a>
+        <a class="main_button" href="user/user_login.do">구직자 로그인</a>    
         <a class="main_button" href="owner/owner_login.do">사업자 로그인</a>
     </div>
 <!-- main------------------------------------------------------------------>

@@ -31,7 +31,7 @@
 	}
 </script>
 <body>
-    <form action="login.do" method="get" id="login-form" name="loginform">
+    <form action="login.do" method="post" id="login-form" name="loginform">
         <h1>1982 사업자</h1>
         <input name="ownerid" type="text" placeholder="OwnerId" />
         <input name="ownerpass" type="password" placeholder="Password" />
