@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 
 	<insert id="ownerInsert" parameterType="OwnerVO">
-		INSERT INTO ownerInfo(ownerid, ownerpass, ownername, ownerpn, ownermail, ownerdate, shopaddr, shopcode)
-		VALUES(#{ownerid}, #{ownerpass}, #{ownername}, #{ownerpn}, #{ownermail}, now(), #{shopaddr}, #{shopcode})
+		INSERT INTO ownerInfo(ownerid, ownerpass, ownername, ownerpn, ownermail, ownerdate, shopaddr, shopcode, shopname)
+		VALUES(#{ownerid}, #{ownerpass}, #{ownername}, #{ownerpn}, #{ownermail}, now(), #{shopaddr}, #{shopcode}, #{shopname})
 	</insert>
 	
 	<select id='idCheck' parameterType="OwnerVO" resultType="OwnerVO">
@@ -26,4 +26,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- ownerid=#{ownerid} AND ownerpass=#{ownerpass} -->
 	
 
+	<insert id="ownerBoardInsert" parameterType="com.javassem.domain.OwnerBoardVO">
+		INSERT INTO board_owner(normal_emergency, shopname, jobDate, jobTime_start, jobTime_end, need_Num, regDate)
+		VALUES(#{normal_emergency}, #{shopname}, #{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now())
+	</insert>
+	
+	<!-- <insert id="ownerBoardInsert" parameterType="com.javassem.domain.OwnerBoardVO">
+		INSERT INTO board_owner(shopName, need_Num, regDate)
+		VALUES(#{shopName}, #{need_Num}, now())
+	</insert> -->
+	
+	<select id="ownerBoardList" resultType="com.javassem.domain.OwnerBoardVO">
+		<![CDATA[
+			SELECT * FROM board_owner ORDER BY board_owner_seq DESC
+		]]>
+	</select>	
 </mapper>

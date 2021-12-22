@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main.jsp</title>
+    <title>board.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-    <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
+  	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
-
 <body>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="main.do" class="logo">
+               <a href="login.do" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
@@ -48,117 +48,93 @@
            </header>
 
     <!-- 메인 ---------------------------------------------------------------->
-        <main >
-            <div>
-                <div class="main_title">내 주변 일자리</div>
-                <div  class="main">
-                  <div id="map" style="width:500px;height:450px;margin-top: 50px;border: 1px solid black;"></div>
-                  
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7566b035bd910a38bdab34848a049ad8"></script>
-    <script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = { 
-		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level: 10 // 지도의 확대 레벨 
-		    }; 
-		
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		
-		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-		if (navigator.geolocation) {
-		    
-		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-		    navigator.geolocation.getCurrentPosition(function(position) {
-		        
-		        var lat = position.coords.latitude, // 위도
-		            lon = position.coords.longitude; // 경도
-		        
-		        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-		            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
-		        
-		        // 마커와 인포윈도우를 표시합니다
-		        displayMarker(locPosition, message);
-		            
-		      });
-		    
-		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-		    
-		    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
-		        message = 'geolocation을 사용할수 없어요..'
-		        
-		    displayMarker(locPosition, message);
-		}
-		
-		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-		function displayMarker(locPosition, message) {
-		
-		    // 마커를 생성합니다
-		    var marker = new kakao.maps.Marker({  
-		        map: map, 
-		        position: locPosition
-		    }); 
-		    
-		    var iwContent = message, // 인포윈도우에 표시할 내용
-		        iwRemoveable = true;
-		
-		    // 인포윈도우를 생성합니다
-		    var infowindow = new kakao.maps.InfoWindow({
-		        content : iwContent,
-		        removable : iwRemoveable
-		    });
-		    
-		    // 인포윈도우를 마커위에 표시합니다 
-		    infowindow.open(map, marker);
-		    
-		    // 지도 중심좌표를 접속위치로 변경합니다
-		    map.setCenter(locPosition);      
-}    
-</script>
-                  <div>  
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                  </div>
-                  <div>
-                        <div class="main_right"></div>
-                        <div class="main_right"></div>
-                  </div>
-                </div>
-                <div id="divPaging">
-                    <div>◀</div>
-                       <div><b>1</b></div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>▶</div>
-                </div>
-                
-            </div>
+        <main>
+            <ul class="left_nav">
+                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+                <li class="left_nav_text"><a href="#">새소식</a></li>
+                <li class="left_nav_text"><a href="#">상품</a></li>
+                <li class="left_nav_text"><a href="#">회사</a></li>
+            </ul>
+
+            <div class="body_container"> <!-- 페이지 컨테이너 시작-->
+             
+                <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
+                   <div class="body_container_center_title"> 고객센터</div>
+                   <div class="search_input">
+                       <select name="" id="" >
+                           <option value="">제목</option>
+                           <option value="">작성일</option>
+                           <option value="">작성자</option>
+                           <option value="">구분</option>
+                           <option value="">제목+내용</option>
+                        </select>
+
+                        <input type="text" placeholder="내용을 입력해주세요.">
+
+                        <button>검색</button>
+                   </div>
+                   <div class="divTable minimalistBlack">
+                    <div class="divTableHeading">
+                    <div class="divTableRow">
+                    <div class="divTableHead">head1</div>
+                    <div class="divTableHead">head2</div>
+                    <div class="divTableHead">head3</div>
+                    <div class="divTableHead">head4</div>
+                    </div>
+                    </div>
+                    <div class="divTableBody">
+                    <div class="divTableRow">
+                    <div class="divTableCell">cell1_1</div>
+                    <div class="divTableCell">cell2_1</div>
+                    <div class="divTableCell">cell3_1</div>
+                    <div class="divTableCell">cell4_1</div>
+                    </div>
+                    <div class="divTableRow">
+                    <div class="divTableCell">cell1_2</div>
+                    <div class="divTableCell">cell2_2</div>
+                    <div class="divTableCell">cell3_2</div>
+                    <div class="divTableCell">cell4_2</div>
+                    </div>
+                    </div>
+                    <div class="divTableFoot tableFootStyle">
+                    <div class="divTableRow">
+                    <div class="divTableCell">foot1</div>
+                    <div class="divTableCell">foot2</div>
+                    <div class="divTableCell">foot3</div>
+                    <div class="divTableCell">foot4</div>
+                    </div>
+                    </div>
+                    </div>
+                   <div class="buttons">
+                       <button class="border_write">글 쓰기</button> 
+
+                       <div class="links">
+                        <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a> 
+                            <a href="#">2</a> 
+                            <a href="#">3</a> 
+                            <a href="#">4</a> 
+                        <a href="#">&raquo;</a>
+                        </div>
+                   </div>
+                </div><!--중간 메뉴바 종료-->
+               
            
-            <div>
-                <div class="main_title">추천 일자리</div>
-                <div  class="main_article">
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                        <div class="main_right"></div>
-                </div>
-                <div id="divPaging">
-                    <div>◀</div>
-                       <div><b>1</b></div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>▶</div>
-                </div>
-            </div>
+            </div><!-- 페이지 컨테이너 종료--       
+        
         </main>
-
-
-
-
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+ 
 
 
 
@@ -231,5 +207,6 @@
         </div>
 
     </footer>
+
 </body>
 </html>

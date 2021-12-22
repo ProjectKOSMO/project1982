@@ -1,10 +1,14 @@
 package com.javassem.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javassem.dao.OwnerDAOImpl;
+import com.javassem.domain.BoardVO;
+import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
 
 @Service("ownerService")
@@ -35,4 +39,12 @@ public class OwnerServiceImpl implements OwnerService{
 		   return ownerDAO.ownerDate(vo);
 	   }
 	   
+	   public int ownerBoardInsert(OwnerBoardVO vo){
+		   return ownerDAO.ownerBoardInsert(vo);
+	   }
+	   
+		public List<OwnerBoardVO> getOwnerBoardList(OwnerBoardVO vo) {
+			return ownerDAO.getOwnerBoardList(vo);
+		}
+
 }

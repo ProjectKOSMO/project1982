@@ -1,20 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
 <body>
-
+<% 
+	String ownerid = (String)session.getAttribute("ownerid");
+	out.println(ownerid + " 님 환영합니다.");
+%>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
          <!-- 로고-->
@@ -25,7 +25,6 @@
             
             <!--메뉴-->   
             <ul class="menu">
-                <li><a href="#">구직자용</a></li>
                 <li><a href="#">구인자용</a>
                 <!--쎄일 라벨 -->
                     <span class="sale-lable">신규</span>

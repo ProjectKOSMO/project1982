@@ -33,7 +33,7 @@
 <body>
     <form action="login.do" method="get" id="login-form" name="loginform">
         <h1>1982 사업자</h1>
-        <input name="ownername" type="text" placeholder="Ownername" />
+        <input name="ownerid" type="text" placeholder="OwnerId" />
         <input name="ownerpass" type="password" placeholder="Password" />
         <input type="submit" name="Submit" id="Submit" value="로그인" />
         <div class="login_article">

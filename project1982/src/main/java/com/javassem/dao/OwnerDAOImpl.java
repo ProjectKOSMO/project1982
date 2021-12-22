@@ -1,9 +1,12 @@
 package com.javassem.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
 
 @Repository("ownerDAO")
@@ -32,5 +35,17 @@ public class OwnerDAOImpl implements OwnerDAO{
 	
 	public String ownerDate(OwnerVO vo){
 		return mybatis.selectOne("sample.getDate", vo);
+	}
+	
+	@Override
+	public int ownerBoardInsert(OwnerBoardVO vo){
+		System.out.println("===>  OwnerMapper ownerBoardInsert() 호출");
+		return mybatis.insert("owner.ownerBoardInsert", vo);
+	}
+
+	@Override
+	public List<OwnerBoardVO> getOwnerBoardList(OwnerBoardVO vo) {
+		System.out.println("===> Mybatis getOwnerBoardList() 호출");
+		return mybatis.selectList("owner.ownerBoardList", vo);
 	}
 }

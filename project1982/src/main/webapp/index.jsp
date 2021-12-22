@@ -12,6 +12,7 @@
     <link type="text/css" href="/project1982/resources/css/1_intro.css" rel="stylesheet"/>
 </head>
 <body>
+
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
          <!-- 로고-->

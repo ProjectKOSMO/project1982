@@ -66,19 +66,19 @@
             <!-- 오른쪽 메뉴-->
             <div class="right-menu">
                 <!--검색 -->
-                 <a href="/project1982/owner/job_positing.do" class="search">
+                <a href="#" class="search">
                     구인공고
-                   </a>
-                   <!--유저 -->
-                   <a href="/project1982/owner/ownerMypage.do" class="user">
-                   마이페이지
-                   </a>
-                   <!--카트  -->
-                   <a href="/project1982/board.do">
-                   고객센터
-                       <!--카트 상품-->
-                       
-                   </a>
+                </a>
+                <!--유저 -->
+                <a href="#" class="user">
+                    마이페이지
+                </a>
+                <!--카트  -->
+                <a href="#">
+                    고객센터
+                    <!--카트 상품-->
+
+                </a>
             </div>
 
         </header>
@@ -96,54 +96,6 @@
             <div class="body_container">
                 <!-- 페이지 컨테이너 시작-->
 
-                
-
-                <form action="ownerBoardInsert.do" method="post">
-
-                <div class="main_title">구인공고</div>
-                    <div class="body_container_center">
-                        <!-- 중간 메뉴바 시작-->
-                        <div>
-                            <div class="main_font">나의 매장 :
-                                <select name="shopname" class="select_css">
-                                    <option>가산1호점</option>
-                                </select>
-
-                            </div>
-                            <div class="main_font">근무 날짜 :
-                                <input type="date" name="jobDate" class="select_css"
-	      						 value="2021-12-21" min="2021-12-21" max="2022-12-20">
-                            </div>
-                            <div class="main_font">근무 시작 시간 :
-                                <input type="time" id="jobStart" name="jobTime_start" class="select_css"
-                                    value="15:00:00">
-                            </div>
-                            <div class="main_font">근무 종료 시간 :
-                                <input type="time" id="jobEnd" name="jobTime_end" class="select_css" value="23:00:00">
-                            </div>
-                            <div class="main_font salary">급여 :
-                                <input class="input_box" type="text" placeholder="* 상세하게 적어주세요">
-                            </div>
-                            <div class="main_font">우대사항 :
-                                <input class="input_box" type="text" placeholder=" 내용을 입력해주세요">
-                            </div>
-                            <div class="main_font">필요인원 :
-                                <input class="input_box" type="text" name="need_Num" placeholder=" 내용을 입력해주세요">
-                            </div>
-                            <div class="main_font">상세내용 :
-
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="main_button">
-                        	<input type="submit" name="normal_emergency" class="button1" value="긴급알바"> 
-                        	<input type="submit" name="normal_emergency" class="button2" value="일일알바">
-                        </div>
-                     
-
-            </div>
-                            </form>
             
             <!--중간 메뉴바 종료-->
 
@@ -157,33 +109,46 @@
 
             <div class="boardcss_list_table">
 
-                <c:if test="${ownerBoardList != null}">
+                
                     <table class="list_table">
                     <thead>
                         <tr>
                             <th width="10%">번호</th>
-                            <th width="10%">긴급 / 일일</th>
-                            <th width="15%">매장 이름</th>
+                            <th width="20%">긴급 / 일일</th>
+                            <th width="20%">매장 이름</th>
                             <th width="20%">날짜</th>
                             <th width="10%">필요 인원</th>
-                            <th width="10%">공고취소</th>
+                            <th width="20%">공고취소</th>
                         </tr>
                     </thead>
+                    <tr>
+                                <td>번호</td>
+                                <td>일일</td>
+                                <td>매장</td>
+                                <td>
+                                   2012-12-21
+                                </td>
+                                <td>3</td>
+								<td>취소</td>
+                            </tr>
                     
+                    <c:if test="${ownerBoardList != null}">
                         <c:forEach items="${ownerBoardList }" var="boardList">
                             <tr>
                                 <td>${boardList.board_owner_seq }</td>
                                 <td>${boardList.normal_emergency }</td>
                                 <td>${boardList.shopname }</td>
-                                <td>${boardList.jobDate}</td>
+                                <td>
+                                    <fmt:parseDate value='${boardList.jobDate}' pattern='yyyy-mm-dd' />
+                                </td>
                                 <td>${boardList.need_Num }</td>
-                                <td>취소</td>
 
                             </tr>
 				                            
                         </c:forEach>
+                         </c:if>
                     </table>
-                </c:if>
+               
 
             </div>
                               
