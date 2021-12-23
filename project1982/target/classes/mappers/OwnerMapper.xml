@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 로그인한 업자에 대한 업체 정보 표기 -->
 	<select id="getList"  parameterType="OwnerVO" resultType="OwnerVO">
 		<![CDATA[
-			SELECT * FROM ownerinfo o,shopinfo s
+			SELECT * FROM ownerInfo o,shopInfo s
 		]]>	
 			<where>
 				o.ownerNum = s.ownernum

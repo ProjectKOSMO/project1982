@@ -1,27 +1,28 @@
 $(function(){
 	// 사용자의 자료 입력여부를 검사하는 함수
 	$('#confirm').click(function(){
-    	if( $.trim($("#userid").val()) == '' ){
+    	if( $.trim($("#userId").val()) == '' ){
             alert("아이디를 입력해 주세요.");
-            $("#userid").focus();
+            $("#userId").focus();
             return;
         }
     	
-    	if($.trim($('#userpass').val())==''){
+    	if($.trim($('#userPass').val())==''){
     		alert("비번입력해주세요.");
-    		$('#userpass').focus();
+    		$('#userPass').focus();
     		return;
     	}
     	
-    	if($.trim($('#userpass').val()) != $.trim($('#userpass2').val())){
+    	if($.trim($('#userPass').val()) != $.trim($('#userPass2').val())){
     		alert("비밀번호가 일치하지 않습니다..");
-    		$('#userpass2').focus();
+    		$('#userPass2').focus();
     		return;
     	}
-    		
-    	if($.trim($('#username').val())==''){
+    	
+    	
+    	if($.trim($('#userName').val())==''){
     		alert("이름입력해주세요.");
-    		$('#username').foucs();
+    		$('#userName').foucs();
     		return;
     	}
        
@@ -31,6 +32,7 @@ $(function(){
 	
 	//아이디 중복체크
 	$('#userid').keyup(function(){
+		
         $.ajax({
         type: 'get',
         url: 'idCheck.do',
@@ -43,6 +45,8 @@ $(function(){
         error : function(err){
         	alert('fail');
         }
-        })    
+        
+        });
+       
 	})
 })

@@ -40,4 +40,7 @@ public interface OwnerDAO {
 	
 	String shopSelect(OwnerVO vo);
 	
+	//-----------------------------------------
+	
+	
 }

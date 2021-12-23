@@ -15,6 +15,8 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+
+	
 			<!-- MariaDB JDBC -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
@@ -166,6 +168,12 @@
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3</version>
+		</dependency>
+		<!-- 파일관련 / 썸네일라이브러리 -->
+		<dependency>
+    		<groupId>org.imgscalr</groupId>
+    		<artifactId>imgscalr-lib</artifactId>
+    		<version>4.2</version>
 		</dependency>
      
 	</dependencies>

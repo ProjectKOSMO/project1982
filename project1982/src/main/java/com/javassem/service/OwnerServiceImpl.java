@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javassem.dao.OwnerDAOImpl;
+import com.javassem.domain.BoardVO;
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
 
@@ -54,5 +55,8 @@ public class OwnerServiceImpl implements OwnerService {
 	public List<OwnerVO> getList(OwnerVO vo) {
 		return ownerDAO.getList(vo);
 	}
+	
+	
+
 
 }

@@ -11,33 +11,43 @@
     <link type="text/css" href="/project1982/resources/css/2_login.css" rel="stylesheet"/>
 </head>
 <script>
-	window.onload = function(){
+		window.onload = function(){
 		document.getElementById('Submit').onclick = check;	
-	}
+		}
 	
-	function check(){
+		function check(){
 		if(document.loginform.userid.value==""){
 			alert("ID를 입력하세요.")
 			document.loginform.userid.focus();
 			return false;
 		}
+	/* 	if(document.loginform.userid.value!="userid"){
+			alert("ID가 틀립니다..")
+			document.loginform.userid.focus();
+			return false;
+		} */
 		
 		if(document.loginform.userpass.value==""){
 			alert("패스워드를 입력하세요.")
 			document.loginform.userpass.focus();
 			return false;
 		}
-		
+		/* if(document.loginform.userpass.value!="userpass"){
+			alert("비밀번호가 틀립니다.")
+			document.loginform.userpass.focus();
+			return false;
+		} */
 		document.loginform.submit();//전송
 	}
 </script>
+
 <body>
 
-    <form action="login.do" method="get" id="login-form" name="loginform">
+    <form name="loginform" action="userMain.do" method="post" id="login-form">
         <h1>1982 구직자</h1>
         <input name="userid" type="text" placeholder="Username" />
         <input name="userpass" type="password" placeholder="Password" />
-        <input type="submit" name="Submit" id="Submit" value="로그인" />
+        <input type="submit" id="Submit" name="Submit" value="로그인" />
         <div class="login_article">
             <a href="#">아이디 |</a>
             <a href="#">비밀번호찾기 |</a>

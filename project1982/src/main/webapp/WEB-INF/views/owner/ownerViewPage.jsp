@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,54 +14,54 @@
 <body>
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
-	out.println(ownerid + " ´Ô È¯¿µÇÕ´Ï´Ù.");
+	out.println(ownerid + " ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
 %>
-        <!--¸Þ´º¹Ù  ------------------------------------------------->
+        <!--ë©”ë‰´ë°”  ------------------------------------------------->
        <header class="header" >
-            <!-- ·Î°í-->
+            <!-- ë¡œê³ -->
                <div>
                <a href="../main.do" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
-               <!--¸Þ´º--> 
+               <!--ë©”ë‰´--> 
              
                
-               <!-- ¿À¸¥ÂÊ ¸Þ´º-->
+               <!-- ì˜¤ë¥¸ìª½ ë©”ë‰´-->
                <div class="right-menu">
-                   <!--°Ë»ö -->
+                   <!--ê²€ìƒ‰ -->
                    <a href="/project1982/owner/job_positing.do" class="search">
-                    ±¸ÀÎ°ø°í
+                    êµ¬ì¸ê³µê³ 
                    </a>
-                   <!--À¯Àú -->
+                   <!--ìœ ì € -->
                    <a href="/project1982/owner/ownerMypage" class="user">
-                   ¸¶ÀÌÆäÀÌÁö
+                   ë§ˆì´íŽ˜ì´ì§€
                    </a>
-                   <!--Ä«Æ®  -->
+                   <!--ì¹´íŠ¸  -->
                    <a href="../board.do">
-                   °í°´¼¾ÅÍ
-                       <!--Ä«Æ® »óÇ°-->
+                   ê³ ê°ì„¼í„°
+                       <!--ì¹´íŠ¸ ìƒí’ˆ-->
                        
                    </a>
                </div>
    
            </header>
 
-    <!-- ¸ÞÀÎ ---------------------------------------------------------------->
+    <!-- ë©”ì¸ ---------------------------------------------------------------->
         <main>
       
         <form action="ownerUpdate" method='post' enctype="multipart/form-data"> 
             <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">È¨</a></li>
-                <li class="left_nav_text"><a href="#">»õ¼Ò½Ä</a></li>
-                <li class="left_nav_text"><a href="#">»óÇ°</a></li>
-                <li class="left_nav_text"><a href="#">È¸»ç</a></li>
+                <li class="left_nav_text"><a class="home" href="#">í™ˆ</a></li>
+                <li class="left_nav_text"><a href="#">ìƒˆì†Œì‹</a></li>
+                <li class="left_nav_text"><a href="#">ìƒí’ˆ</a></li>
+                <li class="left_nav_text"><a href="#">íšŒì‚¬</a></li>
             </ul>
 
-            <div class="body_container"> <!-- ÆäÀÌÁö ÄÁÅ×ÀÌ³Ê ½ÃÀÛ-->
+            <div class="body_container"> <!-- íŽ˜ì´ì§€ ì»¨í…Œì´ë„ˆ ì‹œìž‘-->
          
-                <div class="body_container_center"> <!-- Áß°£ ¸Þ´º¹Ù ½ÃÀÛ-->
-                    <div>¾÷Ã¼ µî·Ï / ¼öÁ¤</div>
+                <div class="body_container_center"> <!-- ì¤‘ê°„ ë©”ë‰´ë°” ì‹œìž‘-->
+                    <div>ì—…ì²´ ë“±ë¡ / ìˆ˜ì •</div>
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
                                	<div>
@@ -71,33 +71,33 @@
                  
                             </div>
                             <div class= "body_container_center_shop_contanier_info">
-                                <div>¾÷Ã¼ ÀÌ¸§: ${shopList[0].shopname }</div>                                
-                                <div>¾÷Ã¼ ÁÖ¼Ò: ${shopList[0].shopaddr }</div>                                
-                                <div>¾÷Ã¼ ¿¬¶ôÃ³: ${shopList[0].shoppn }</div>                                
-                                <div class="body_container_center_shop_contanier_info_ta">¾÷Ã¼ ¼Ò°³: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div>ì—…ì²´ ì´ë¦„: ${shopList[0].shopname }</div>                                
+                                <div>ì—…ì²´ ì£¼ì†Œ: ${shopList[0].shopaddr }</div>                                
+                                <div>ì—…ì²´ ì—°ë½ì²˜: ${shopList[0].shoppn }</div>                                
+                                <div class="body_container_center_shop_contanier_info_ta">ì—…ì²´ ì†Œê°œ: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <textarea style="resize: none;" name="" id="" cols="20" rows="5" readonly>${shopList[0].shopcontent }</textarea>     
 
                                     
                                 </div>                                
                                 
-                                                     <button>¼öÁ¤ </button>                 
+                                                     <button>ìˆ˜ì • </button>                 
                             </div>
                         </div>
                     
                     
                     
                     
-                    <div>¾÷Ã¼ µî·Ï ÇöÈ²</div>
+                    <div>ì—…ì²´ ë“±ë¡ í˜„í™©</div>
                     <div>
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">¹øÈ£</div>
-                            <div class="divTableHead">¾÷Ã¼ ÀÌ¸§</div>
-                            <div class="divTableHead">¸Å´ÏÀú ÀÌ¸§</div>
-                            <div class="divTableHead">¾÷Ã¼ ÁÖ¼Ò</div>
-                            <div class="divTableHead">¾÷Ã¼ ¿¬¶ôÃ³</div>
-                            <div class="divTableHead">¾÷Ã¼¼Ò°³</div>
+                            <div class="divTableHead">ë²ˆí˜¸</div>
+                            <div class="divTableHead">ì—…ì²´ ì´ë¦„</div>
+                            <div class="divTableHead">ë§¤ë‹ˆì € ì´ë¦„</div>
+                            <div class="divTableHead">ì—…ì²´ ì£¼ì†Œ</div>
+                            <div class="divTableHead">ì—…ì²´ ì—°ë½ì²˜</div>
+                            <div class="divTableHead">ì—…ì²´ì†Œê°œ</div>
                        
                             </div>
                             </div>
@@ -119,7 +119,7 @@
                          </c:forEach>
                     </div>
 
-                    <div>±¸Á÷ÀÚ ½ÅÃ» ÇöÈ²</div>
+                    <div>êµ¬ì§ìž ì‹ ì²­ í˜„í™©</div>
                     <div>
                         <div>
                             
@@ -128,12 +128,12 @@
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">¹øÈ£</div>
-                            <div class="divTableHead">±¸Á÷ÀÚ ÀÌ¸§</div>
-                            <div class="divTableHead">±Ù¹« ¿¹Á¤ ÀÏÀÚ</div>
-                            <div class="divTableHead">ÀÌ·Â¼­ È®ÀÎ</div>
-                            <div class="divTableHead">°í¿ë ¿©ºÎ</div>
-                            <div class="divTableHead">¿¬¶ôÃ³</div>    
+                            <div class="divTableHead">ë²ˆí˜¸</div>
+                            <div class="divTableHead">êµ¬ì§ìž ì´ë¦„</div>
+                            <div class="divTableHead">ê·¼ë¬´ ì˜ˆì • ì¼ìž</div>
+                            <div class="divTableHead">ì´ë ¥ì„œ í™•ì¸</div>
+                            <div class="divTableHead">ê³ ìš© ì—¬ë¶€</div>
+                            <div class="divTableHead">ì—°ë½ì²˜</div>    
                         </div>
                             </div>
                             <div class="divTableBody">
@@ -142,58 +142,58 @@
                             <div class="divTableCell">cell2_1</div>
                             <div class="divTableCell">cell3_1</div>
                             <div class="divTableCell"><button>PDF</button> <button>PPT</button></div>
-                            <div class="divTableCell"><button>°í¿ë</button> <button>°ÅÀý</button></div>
-                            <div class="divTableCell"><button>¿µ±¸ Á¤Áö</button></div>
+                            <div class="divTableCell"><button>ê³ ìš©</button> <button>ê±°ì ˆ</button></div>
+                            <div class="divTableCell"><button>ì˜êµ¬ ì •ì§€</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_2</div>
                             <div class="divTableCell">cell2_2</div>
                             <div class="divTableCell">cell3_2</div>
                             <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">Áö°¡»çÀåÀÎÁÙ¾Ï</div>
-                            <div class="divTableCell"><button>¿µ±¸ Á¤Áö</button></div>
+                            <div class="divTableCell">ì§€ê°€ì‚¬ìž¥ì¸ì¤„ì•”</div>
+                            <div class="divTableCell"><button>ì˜êµ¬ ì •ì§€</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_3</div>
                             <div class="divTableCell">cell2_3</div>
                             <div class="divTableCell">cell3_3</div>
                             <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">Àá¼ö</div>
-                            <div class="divTableCell"><button>¿µ±¸ Á¤Áö</button></div>
+                            <div class="divTableCell">ìž ìˆ˜</div>
+                            <div class="divTableCell"><button>ì˜êµ¬ ì •ì§€</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_4</div>
                             <div class="divTableCell">cell2_4</div>
                             <div class="divTableCell">cell3_4</div>
                             <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">½ÏÅü¹Ù°¡Áö</div>
-                            <div class="divTableCell"><button>¿µ±¸ Á¤Áö</button></div>
+                            <div class="divTableCell">ì‹¹í‰ë°”ê°€ì§€</div>
+                            <div class="divTableCell"><button>ì˜êµ¬ ì •ì§€</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_5</div>
                             <div class="divTableCell">cell2_5</div>
                             <div class="divTableCell">cell3_5</div>
                             <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">¹üÁË</div>
-                            <div class="divTableCell"><button>¿µ±¸ Á¤Áö</button></div>
+                            <div class="divTableCell">ë²”ì£„</div>
+                            <div class="divTableCell"><button>ì˜êµ¬ ì •ì§€</button></div>
                             </div>
                             
                             </div>
                            
                             </div>
 
-                            <div>Ãâ±Ù ÇöÈ²</div>
+                            <div>ì¶œê·¼ í˜„í™©</div>
                     <div>
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">±ä±Þ / ÀÏÀÏ</div>
-                            <div class="divTableHead">¹øÈ£</div>
-                            <div class="divTableHead">±¸Á÷ÀÚ ÀÌ¸§</div>
-                            <div class="divTableHead">±Ù¹«½Ã°£</div>
-                            <div class="divTableHead">±Þ¿©</div>
-                            <div class="divTableHead">Â÷´Ü</div>
-                            <div class="divTableHead">¾Ë¹ÙÁ¾·á</div>
+                            <div class="divTableHead">ê¸´ê¸‰ / ì¼ì¼</div>
+                            <div class="divTableHead">ë²ˆí˜¸</div>
+                            <div class="divTableHead">êµ¬ì§ìž ì´ë¦„</div>
+                            <div class="divTableHead">ê·¼ë¬´ì‹œê°„</div>
+                            <div class="divTableHead">ê¸‰ì—¬</div>
+                            <div class="divTableHead">ì°¨ë‹¨</div>
+                            <div class="divTableHead">ì•Œë°”ì¢…ë£Œ</div>
 
                         </div>
                             </div>
@@ -203,45 +203,45 @@
                             <div class="divTableCell">cell2_1</div>
                             <div class="divTableCell">cell3_1</div>
                             <div class="divTableCell">cell4_1</div>
-                            <div class="divTableCell">±Ù¹«ÅÂ¸¸</div>
-                            <div class="divTableCell"><button>Â÷´Ü</button></div>
-                            <div class="divTableCell"><button>¾Ë¹Ù Á¾·á</button></div>
+                            <div class="divTableCell">ê·¼ë¬´íƒœë§Œ</div>
+                            <div class="divTableCell"><button>ì°¨ë‹¨</button></div>
+                            <div class="divTableCell"><button>ì•Œë°” ì¢…ë£Œ</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_2</div>
                             <div class="divTableCell">cell2_2</div>
                             <div class="divTableCell">cell3_2</div>
                             <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">Áö°¡»çÀåÀÎÁÙ¾Ï</div>
-                            <div class="divTableCell"><button>Â÷´Ü</button></div>
-                            <div class="divTableCell"><button>¾Ë¹Ù Á¾·á</button></div>
+                            <div class="divTableCell">ì§€ê°€ì‚¬ìž¥ì¸ì¤„ì•”</div>
+                            <div class="divTableCell"><button>ì°¨ë‹¨</button></div>
+                            <div class="divTableCell"><button>ì•Œë°” ì¢…ë£Œ</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_3</div>
                             <div class="divTableCell">cell2_3</div>
                             <div class="divTableCell">cell3_3</div>
                             <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">Àá¼ö</div>
-                            <div class="divTableCell"><button>Â÷´Ü</button></div>
-                            <div class="divTableCell"><button>¾Ë¹Ù Á¾·á</button></div>
+                            <div class="divTableCell">ìž ìˆ˜</div>
+                            <div class="divTableCell"><button>ì°¨ë‹¨</button></div>
+                            <div class="divTableCell"><button>ì•Œë°” ì¢…ë£Œ</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_4</div>
                             <div class="divTableCell">cell2_4</div>
                             <div class="divTableCell">cell3_4</div>
                             <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">½ÏÅü¹Ù°¡Áö</div>
-                            <div class="divTableCell"><button>Â÷´Ü</button></div>
-                            <div class="divTableCell"><button>¾Ë¹Ù Á¾·á</button></div>
+                            <div class="divTableCell">ì‹¹í‰ë°”ê°€ì§€</div>
+                            <div class="divTableCell"><button>ì°¨ë‹¨</button></div>
+                            <div class="divTableCell"><button>ì•Œë°” ì¢…ë£Œ</button></div>
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">cell1_5</div>
                             <div class="divTableCell">cell2_5</div>
                             <div class="divTableCell">cell3_5</div>
                             <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">¹üÁË</div>
-                            <div class="divTableCell"><button>Â÷´Ü</button></div>
-                            <div class="divTableCell"><button>¾Ë¹Ù Á¾·á</button></div>
+                            <div class="divTableCell">ë²”ì£„</div>
+                            <div class="divTableCell"><button>ì°¨ë‹¨</button></div>
+                            <div class="divTableCell"><button>ì•Œë°” ì¢…ë£Œ</button></div>
                             </div>
                             
                             </div>
@@ -249,15 +249,15 @@
                             </div>
                     </div>
 
-                    <div>±¸Á÷ÀÚ Â÷´Ü ³»¿ª</div>
+                    <div>êµ¬ì§ìž ì°¨ë‹¨ ë‚´ì—­</div>
                     <div>
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">¹øÈ£</div>
-                            <div class="divTableHead">±¸Á÷ÀÚ ÀÌ¸§ / ¾ÆÀÌµð</div>
-                            <div class="divTableHead">Â÷´Ü ÀÏÀÚ</div>
-                            <div class="divTableHead">Â÷´Ü»çÀ¯</div>
+                            <div class="divTableHead">ë²ˆí˜¸</div>
+                            <div class="divTableHead">êµ¬ì§ìž ì´ë¦„ / ì•„ì´ë””</div>
+                            <div class="divTableHead">ì°¨ë‹¨ ì¼ìž</div>
+                            <div class="divTableHead">ì°¨ë‹¨ì‚¬ìœ </div>
            
 
                         </div>
@@ -272,9 +272,9 @@
                             </div>
                             <div class="divTableRow">
                             <div class="divTableCell">2</div>
-                            <div class="divTableCell">ÀÌ¼º´ë(skyvcx)</div>
+                            <div class="divTableCell">ì´ì„±ëŒ€(skyvcx)</div>
                             <div class="divTableCell">2021-12-13</div>
-                            <div class="divTableCell">Áö°¡ »çÀåÀÎÁÙ ¾Ï</div>
+                            <div class="divTableCell">ì§€ê°€ ì‚¬ìž¥ì¸ì¤„ ì•”</div>
                
                             </div>
                             <div class="divTableRow">
@@ -303,11 +303,11 @@
                            
                             </div>
                    
-                </div><!--Áß°£ ¸Þ´º¹Ù Á¾·á-->
+                </div><!--ì¤‘ê°„ ë©”ë‰´ë°” ì¢…ë£Œ-->
                
             
-            </div><!-- ÆäÀÌÁö ÄÁÅ×ÀÌ³Ê Á¾·á--> 
-        </form> <!--  ÀüÃ¼ÆûÀ¸·Î °¨½Î±â -->
+            </div><!-- íŽ˜ì´ì§€ ì»¨í…Œì´ë„ˆ ì¢…ë£Œ--> 
+        </form> <!--  ì „ì²´í¼ìœ¼ë¡œ ê°ì‹¸ê¸° -->
         </main>
         
         
@@ -333,15 +333,15 @@
             <div class="wrap_inner">
                 <div class="left_area">
                     <h4 class="rap_inner_h4">
-                        ÀÏ±¸ÇÏÀÚ 1982
+                        ì¼êµ¬í•˜ìž 1982
                     </h4>
                     <div class="left_text">
                         <div class="left_text_margin">
-                            <h5>°í°´¼¾ÅÍ</h5>
+                            <h5>ê³ ê°ì„¼í„°</h5>
                             <p class="left_phone">1566-1982</p>
                             <p> 
-                                <div>ÆòÀÏ AM 09:00 ~ PM 05:30</div>
-                                <div>Á¡½É PM 12:00 ~ PM 01:00</div>
+                                <div>í‰ì¼ AM 09:00 ~ PM 05:30</div>
+                                <div>ì ì‹¬ PM 12:00 ~ PM 01:00</div>
                             </p>
                         </div>
                     </div>
@@ -356,36 +356,36 @@
 
                 <div class="right_area">
                     <div class="right_ul">
-                        <p>ÀÌ¿ë¾à°ü | </p>
-                        <p>°³ÀÎÁ¤º¸Ã³¸®¹æÄ§ | </p>
-                        <p>ÀÏ±¸ÇÏÀÚ ÀÌ¿ë¾È³» | </p>
-                        <p>°í°´¿äÃ»</p>
+                        <p>ì´ìš©ì•½ê´€ | </p>
+                        <p>ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨ | </p>
+                        <p>ì¼êµ¬í•˜ìž ì´ìš©ì•ˆë‚´ | </p>
+                        <p>ê³ ê°ìš”ì²­</p>
                     </div>
                     <div class="right_address">
                         <p>
-                            <span>ÁÖ½ÄÈ¸»ç 1982 |</span>
+                            <span>ì£¼ì‹íšŒì‚¬ 1982 |</span>
                             <a href="#">
 
-                                <span>´ëÇ¥ÀÌ»ç : ÇÑ¼¼È£ |</span>
+                                <span>ëŒ€í‘œì´ì‚¬ : í•œì„¸í˜¸ |</span>
                             </a>
-                                <span>»ç¾÷ÀÚµî·Ï¹øÈ£ : 123-12-12345</span>
+                                <span>ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸ : 123-12-12345</span>
                             </p>
                         <p>
-                            <span>Åë½ÅÆÇ¸Å¾÷½Å°í : 2021-¼­¿ï°¡»ê-1982 |</span>
-                            <span>WEBMASTER : ÇÑ¼¼È£</span>
+                            <span>í†µì‹ íŒë§¤ì—…ì‹ ê³  : 2021-ì„œìš¸ê°€ì‚°-1982 |</span>
+                            <span>WEBMASTER : í•œì„¸í˜¸</span>
                         </p>
                         <p>
-                            <span>ÁÖ¼Ò : 00000 ¼­¿ï ±ÝÃµ±¸ º¢²É·Î 309 </span>
+                            <span>ì£¼ì†Œ : 00000 ì„œìš¸ ê¸ˆì²œêµ¬ ë²šê½ƒë¡œ 309 </span>
                         </p>
                         <p>
                             <span>TEL : 1566-1982</span>
                             <span>E - mail : 1982@seho.co.kr</span>
-                            <span>È£½ºÆÃÁ¦°øÀÚ : ÄÚ½º¸ð(ÁÖ)</span>
+                            <span>í˜¸ìŠ¤íŒ…ì œê³µìž : ì½”ìŠ¤ëª¨(ì£¼)</span>
                         </p>
                     </div>
                     <p class="right_copyright">
                         Copyright by
-                        <span>ÀÏ±¸ÇÏÀÚ 1982</span>
+                        <span>ì¼êµ¬í•˜ìž 1982</span>
                         all rights reserved.
                     </p>
                 </div>        

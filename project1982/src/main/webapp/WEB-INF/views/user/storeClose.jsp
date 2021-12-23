@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +19,7 @@
         <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="../main.do" class="logo">
+               <a href="userMain.do" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
@@ -30,15 +32,12 @@
                    <a href="storeClose.do" class="search">
                    일자리찾기
                    </a>
-                   <a href="../owner/job_positing.do" class="search">
-                    구인공고
-                   </a>
                    <!--유저 -->
                    <a href="userMypage.do" class="user">
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="../board.do">
+                   <a href="userBoard.do">
                    고객센터
                        <!--카트 상품-->
                        
@@ -47,7 +46,8 @@
    
            </header>
  <!-- 메인 ---------------------------------------------------------------->
-      <section class="section">
+     <!--  <form action = "StoreList.do" method ="get">
+      <section class="section" >
           <h1>업체 검색</h1>
           <div class="select">
           <select  name="sido1" id="sido1" >
@@ -60,13 +60,16 @@
         <button class="search_button">검색</button>
         </div>
     </section>
-      
+     </form> -->
+     	
+     
     <section class="section_main">
            
       <div id="mainWrapper">
 
           <ul>
               <!-- 게시판 제목 -->
+              
              
   
               <!-- 게시판 목록  -->
@@ -84,53 +87,19 @@
                           </ul>
                       </li>
                       <!-- 게시물이 출력될 영역 -->
-                      <li>
-                          <ul>
-                              <li class="left"><a href="#">롯데리아</a></li>
-                              <li class="left">서울특별시 금천구 가산디지털단지</li>
-                              <li class="left">2014.07.09</li>
-                              <li class="left">8,000</li>
-                              <li class="left">
-                                  <button class="button">지원</button>
-                              </li>
-                          </ul>
-                      </li>
-  
-                      <li>
-                          <ul>
-                              <li class="left"><a href="#">비어킹</a></li>
-                              <li class="left">제목제목제목제목1</li>
-                              <li class="left">2014.07.09</li>
-                              <li class="left">9,500</li>
-                              <li class="left">
-                                <button class="button">지원</button>
-                              </li>
-                          </ul>
-                      </li>
-  
-                      <li>
-                          <ul>
-                              <li class="left"><a href="#">맥도날드</a></li>
-                              <li class="left">제목제목제목제목1</li>
-                              <li class="left">2014.07.09</li>
-                              <li class="left">12,000</li>
-                              <li class="left">
-                                <button class="button">지원</button>
-                              </li>
-                          </ul>
-                      </li>
-  
-                      <li>
-                          <ul>
-                              <li class="left"><a href="#">비비큐</a></li>
-                              <li class="left">제목제목제목제목1</li>
-                              <li class="left">2014.07.09</li>
-                              <li class="left">19,000</li>
-                              <li class="left">
-                                <button class="button">지원</button>
-                              </li>
-                          </ul>
-                      <li>                                        
+                       
+                         <c:forEach items="${StoreList}" var="store">
+							<li>
+							<ul>
+						
+								<li class="left">${store.storeid }</li>
+								<li class="left">${store.storeaddr }</li>
+								<li class="left">${store.storedate }</li>
+								<li class="left">${store.storepay }</li>
+								<button class="button">지원</button>
+							</ul>
+							</li>
+							</c:forEach>                               
                   </ul>
               </li>
   
@@ -155,128 +124,8 @@
 
   </section>
 
-  <section class="section1">
-    <h1>내가 찜한 점포</h1>
-    
-</section>
-
-<section class="section_main">
-     
-      
-
-
-
-
-<div id="mainWrapper">
-
-    <ul>
-        <!-- 게시판 제목 -->
-       
-
-        <!-- 게시판 목록  -->
-        <li>
-            
-           
-            <ul id ="ulTable">
-                <li>
-                    <ul>
-                        <li>업체</li>
-                        <li>주소</li>
-                        <li>날짜</li>
-                        <li>시급</li>
-                        <li>취소</li>
-                    </ul>
-                </li>
-                <!-- 게시물이 출력될 영역 -->
-                <li>
-                    <ul>
-                        <li class="left"><a href="#">롯데리아</a></li>
-                        <li class="left">서울특별시 서초구 반포대로</li>
-                        <li class="left">2014.07.09</li>
-                        <li class="left">8,000</li>
-                        <li class="left">
-                            <button class="button">삭제</button>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <ul>
-                        <li class="left"><a href="#">비어킹</a></li>
-                        <li class="left">제목제목제목제목1</li>
-                        <li class="left">2014.07.09</li>
-                        <li class="left">9,500</li>
-                        <li class="left">
-                          <button class="button">삭제</button>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <ul>
-                        <li class="left"><a href="#">맥도날드</a></li>
-                        <li class="left">제목제목제목제목1</li>
-                        <li class="left">2014.07.09</li>
-                        <li class="left">12,000</li>
-                        <li class="left">
-                          <button class="button">삭제</button>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <ul>
-                        <li class="left"><a href="#">비비큐</a></li>
-                        <li class="left">제목제목제목제목1</li>
-                        <li class="left">2014.07.09</li>
-                        <li class="left">19,000</li>
-                        <li class="left">
-                          <button class="button">삭제</button>
-                        </li>
-                    </ul>
-                <li>                                        
-            </ul>
-        </li>
-
-        <!-- 게시판 페이징 영역 -->
-        <li>
-            <div id="divPaging">
-                <div>◀</div>
-                   <div><b>1</b></div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>▶</div>
-            </div>
-        </li>
-
+ 
         <!-- 검색 폼 영역 -->
-   
-
-    </ul>
-</div>
-
-</section>
-
-
-
-
-
-
-
-
-        <!-- -------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- footer --------------------------------------------------------------------->

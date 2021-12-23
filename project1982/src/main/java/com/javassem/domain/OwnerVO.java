@@ -41,6 +41,7 @@ public class OwnerVO {
 	public MultipartFile getFile() {
 		return file;
 	}
+	
 	public void setFile(MultipartFile file) {
 		this.file = file;
 		
@@ -53,7 +54,9 @@ public class OwnerVO {
 			this.si_realname = uuid.toString()+"_"+si_fname;
 			//***********************************************
 			// 해당 경로로 변경
-			File f = new File("D:\\project1982_owner\\project1982\\src\\main\\webapp\\resources\\upload\\"+si_realname);
+//			File f = new File("D:\\project1982\\project1982\\src\\main\\webapp\\resources\\upload\\"+si_realname);
+			File f = new File("C:\\Users\\Kosmo\\git\\project1982\\project1982\\src\\main\\webapp\\resources\\upload\\"+si_realname);
+
 			
 			try {
 				file.transferTo(f);
